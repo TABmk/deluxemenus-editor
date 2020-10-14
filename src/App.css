@@ -1,38 +1,153 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@font-face {
+    font-family: "Minecraft";
+    src: url('/minecraft-font.ttf');
   }
+
+html {
+  padding-left: 10px;
+  box-sizing: border-box;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  font-family: 'Minecraft', monospace;
+  background: #ccc;
+  box-sizing: border-box;
+  width: 100%;
+  height: 80vh;
+}
+.ace_gutter {
+  z-index: 0;
+}
+#ace-editor {
+  height: 100% !important;
+  width: 100% !important;
+}
+#output {
+  float: right;
+  width: 50vw;
+  height: 100vh;
+}
+
+#itemsSearch {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.value {
+  margin-top: 10px;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+button:focus {outline:0}
+input, textarea, button {
+  font-family: 'Minecraft';
+  background-color: #ccc;
+  box-shadow: inset 1px 1px 0px #555555;
+}
+
+.inventory {
+  width: 335px;
+  height: fit-content;
+  background: #c6c6c6;
+  border-radius: 3px;
+  box-shadow: 5px 5px 0px #555555, inset 4px 4px 0px #fefefe;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+#title {
+  max-height: 16px;
+  overflow: hidden;
+  margin: 5px 10px;
+}
+
+.number {
+  text-align: right;
+  width: 22.5px;
+  font-family: 'Minecraft', monospace;
+  font-size: 15px;
+  color: #fefefe;
+  position: relative;
+  text-shadow: #333 1px 2px 1px;
+  top: -11px;
+  right: -7px;
+  cursor: default;
+}
+
+.slot {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  background: #8b8b8b;
+  box-shadow: inset 1.5px 1.5px 0px rgba(55, 55, 55, 0.8),
+    inset -2px -2px 0px #ffffff;
+}
+
+.slotSpace {
+  margin: 10px 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.item {
+  margin: 2px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 30px;
+  height: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.item img {
+  width: 28px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ghostItem img {
+  width: 28px;
+}
+.ghostItem .number {
+  top: -20px;
+  right: -13px;
+}
+
+::selection {
+  background: transparent;
+}
+
+::-moz-selection {
+  background: transparent;
+}
+
+.copy {
+  font-family: 'Minecraft', monospace;
+  font-size: 18px;
+  width: 350px;
+  display: flex;
+  justify-content: flex-end;
+  color: #333;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.selectedSlot {
+  background: #C5C5C5;
 }
