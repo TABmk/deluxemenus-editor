@@ -1,22 +1,27 @@
 {
   "files": {
-    "main.css": "/dmeditor/static/css/main.7f2c96c0.chunk.css",
-    "main.js": "/dmeditor/static/js/main.150f5a1a.chunk.js",
-    "main.js.map": "/dmeditor/static/js/main.150f5a1a.chunk.js.map",
-    "runtime-main.js": "/dmeditor/static/js/runtime-main.244191dd.js",
-    "runtime-main.js.map": "/dmeditor/static/js/runtime-main.244191dd.js.map",
-    "static/js/2.e8fc15c2.chunk.js": "/dmeditor/static/js/2.e8fc15c2.chunk.js",
-    "static/js/2.e8fc15c2.chunk.js.map": "/dmeditor/static/js/2.e8fc15c2.chunk.js.map",
+    "static/js/0.a5e8167c.chunk.js": "/dmeditor/static/js/0.a5e8167c.chunk.js",
+    "static/js/0.a5e8167c.chunk.js.map": "/dmeditor/static/js/0.a5e8167c.chunk.js.map",
+    "main.css": "/dmeditor/static/css/main.dad2fd24.chunk.css",
+    "main.js": "/dmeditor/static/js/main.8f506c41.chunk.js",
+    "main.js.map": "/dmeditor/static/js/main.8f506c41.chunk.js.map",
+    "runtime-main.js": "/dmeditor/static/js/runtime-main.62cd97fb.js",
+    "runtime-main.js.map": "/dmeditor/static/js/runtime-main.62cd97fb.js.map",
+    "static/css/3.ee241de9.chunk.css": "/dmeditor/static/css/3.ee241de9.chunk.css",
+    "static/js/3.490bb844.chunk.js": "/dmeditor/static/js/3.490bb844.chunk.js",
+    "static/js/3.490bb844.chunk.js.map": "/dmeditor/static/js/3.490bb844.chunk.js.map",
     "index.html": "/dmeditor/index.html",
-    "precache-manifest.fb86682839a2ef255beaa2dc75016a04.js": "/dmeditor/precache-manifest.fb86682839a2ef255beaa2dc75016a04.js",
+    "precache-manifest.5f7af01c9775b36fe505f995613a01d8.js": "/dmeditor/precache-manifest.5f7af01c9775b36fe505f995613a01d8.js",
     "service-worker.js": "/dmeditor/service-worker.js",
-    "static/css/main.7f2c96c0.chunk.css.map": "/dmeditor/static/css/main.7f2c96c0.chunk.css.map",
-    "static/js/2.e8fc15c2.chunk.js.LICENSE.txt": "/dmeditor/static/js/2.e8fc15c2.chunk.js.LICENSE.txt"
+    "static/css/3.ee241de9.chunk.css.map": "/dmeditor/static/css/3.ee241de9.chunk.css.map",
+    "static/css/main.dad2fd24.chunk.css.map": "/dmeditor/static/css/main.dad2fd24.chunk.css.map",
+    "static/js/3.490bb844.chunk.js.LICENSE.txt": "/dmeditor/static/js/3.490bb844.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.244191dd.js",
-    "static/js/2.e8fc15c2.chunk.js",
-    "static/css/main.7f2c96c0.chunk.css",
-    "static/js/main.150f5a1a.chunk.js"
+    "static/js/runtime-main.62cd97fb.js",
+    "static/css/3.ee241de9.chunk.css",
+    "static/js/3.490bb844.chunk.js",
+    "static/css/main.dad2fd24.chunk.css",
+    "static/js/main.8f506c41.chunk.js"
   ]
 }
