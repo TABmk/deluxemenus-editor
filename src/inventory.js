@@ -6,9 +6,29 @@ import React, { Component } from 'react';
 import AceEditor from 'react-ace';
 import YAML from 'json-to-pretty-yaml';
 import Modal from 'react-modal';
+import _LANG from './lang/english';
+
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 
 import "ace-builds/src-noconflict/mode-yaml";
 import "ace-builds/src-noconflict/theme-github";
+
+const LANGLIST = ['russian', 'english'];
+
+let LANG = _LANG;
+let _lang = localStorage.getItem('lang');
+
+let selectLang = async (lang) => {
+  if (lang && LANGLIST.includes(lang)) {
+    await import(`./lang/${lang}`).then(res => {
+      LANG = res.default
+      console.log(res.default);
+    });
+  }
+}
+
+selectLang(_lang);
 
 Modal.setAppElement('#root');
 
@@ -25,173 +45,175 @@ const customStyles = {
     background: '#c6c6c6'
   }
 };
+
 const fields = [
   {
-    name: 'data',
+    name: LANG['data'],
     extra: true,
     type: 'text',
     tagName: 'input'
   },
   {
-    name: 'amount',
+    name: LANG['amount'],
     extra: false,
     type: 'number',
     tagName: 'input'
   },
   {
-    name: 'dynamic_amount',
+    name: LANG['dynamic_amount'],
     extra: true,
     type: 'text',
     tagName: 'input'
   },
   {
-    name: 'nbt_string',
+    name: LANG['nbt_string'],
     extra: true,
     type: 'text',
     tagName: 'input'
   },
   {
-    name: 'nbt_int',
+    name: LANG['nbt_int'],
     extra: true,
     type: 'text',
     tagName: 'input'
   },
   {
-    name: 'banner_meta',
+    name: LANG['banner_meta'],
     extra: true,
     type: 'text',
     tagName: 'textarea'
   },
   {
-    name: 'rgb',
+    name: LANG['rgb'],
     extra: true,
     type: 'text',
     tagName: 'input'
   },
   {
-    name: 'display_name',
+    name: LANG['display_name'],
     extra: false,
     type: 'text',
     tagName: 'input'
   },
   {
-    name: 'lore',
+    name: LANG['lore'],
     extra: false,
     type: 'text',
     tagName: 'textarea'
   },
   {
-    name: 'priority',
+    name: LANG['priority'],
     extra: true,
     type: 'number',
     tagName: 'input'
   },
   {
-    name: 'view_requirement',
+    name: LANG['view_requirement'],
     extra: true,
     type: 'text',
     tagName: 'input'
   },
   {
-    name: 'enchantments',
+    name: LANG['enchantments'],
     extra: true,
     type: '',
     tagName: 'textarea'
   },
   {
-    name: 'update',
+    name: LANG['update'],
     extra: true,
     type: 'checkbox',
     tagName: 'input'
   },
   {
-    name: 'hide_enchantments',
+    name: LANG['hide_enchantments'],
     extra: true,
     type: 'checkbox',
     tagName: 'input'
   },
   {
-    name: 'hide_attributes',
+    name: LANG['hide_attributes'],
     extra: true,
     type: 'checkbox',
     tagName: 'input'
   },
   {
-    name: 'hide_effects',
+    name: LANG['hide_effects'],
     extra: true,
     type: 'checkbox',
     tagName: 'input'
   },
   {
-    name: 'unbreakable',
+    name: LANG['unbreakable'],
     extra: true,
     type: 'checkbox',
     tagName: 'input'
   },
   {
-    name: 'left_click_commands',
+    name: LANG['left_click_commands'],
     extra: true,
     type: '',
     tagName: 'textarea'
   },
   {
-    name: 'right_click_commands',
+    name: LANG['right_click_commands'],
     extra: true,
     type: '',
     tagName: 'textarea'
   },
   {
-    name: 'middle_click_commands',
+    name: LANG['middle_click_commands'],
     extra: true,
     type: '',
     tagName: 'textarea'
   },
   {
-    name: 'shift_left_click_commands',
+    name: LANG['shift_left_click_commands'],
     extra: true,
     type: '',
     tagName: 'textarea'
   },
   {
-    name: 'shift_right_click_commands',
+    name: LANG['shift_right_click_commands'],
     extra: true,
     type: '',
     tagName: 'textarea'
   },
   {
-    name: 'left_click_requirement',
+    name: LANG['left_click_requirement'],
     extra: true,
     type: '',
     tagName: 'textarea'
   },
   {
-    name: 'right_click_requirement',
+    name: LANG['right_click_requirement'],
     extra: true,
     type: '',
     tagName: 'textarea'
   },
   {
-    name: 'middle_click_requirement',
+    name: LANG['middle_click_requirement'],
     extra: true,
     type: '',
     tagName: 'textarea'
   },
   {
-    name: 'shift_left_click_requirement',
+    name: LANG['shift_left_click_requirement'],
     extra: true,
     type: '',
     tagName: 'textarea'
   },
   {
-    name: 'shift_right_click_requirement',
+    name: LANG['shift_right_click_requirement'],
     extra: true,
     type: '',
     tagName: 'textarea'
   },
 ];
+
 export class Inventory extends Component {
   state = {
-    menu_title: '&cMenu &1&lbold',
+    menu_title: LANG['Menu default title'],
     open_command: 'menu',
     size: 0,
     showModal: true,
@@ -249,6 +271,10 @@ export class Inventory extends Component {
   }
   componentDidUpdate(){
     localStorage.setItem('state', JSON.stringify(this.state))
+  }
+  _changeLang = async (e) => {
+    await selectLang(e.value);
+    this.forceUpdate();
   }
   selectedHead = (itm) => {
     let ar = this.state.items;
@@ -322,7 +348,7 @@ export class Inventory extends Component {
     })
   }
   changeSize = (e) => {
-    if (e.currentTarget.textContent === 'Remove row') {
+    if (e.currentTarget.textContent === LANG['button Remove row']) {
       if (this.state.items.length === 9) {
         return;
       }
@@ -336,7 +362,7 @@ export class Inventory extends Component {
         })
       }
     }
-    if (e.currentTarget.textContent === 'Add row') {
+    if (e.currentTarget.textContent === LANG['button Add row']) {
       if (this.state.items.length > 50 ) {
         return;
       }
@@ -362,7 +388,6 @@ export class Inventory extends Component {
       extra: !this.state.extra,
     });
   }
-
   updateItem = (e) => {
     let ar = this.state.items;
 
@@ -404,10 +429,17 @@ export class Inventory extends Component {
             value={YAML.stringify(this.computedItems())}
             />
         </div>
-        <button onClick={() => {localStorage.clear();window.location.reload(false);}}>CLEAR</button>
-        <button onClick={this.changeSize}>Remove row</button>
-        <button onClick={this.changeSize}>Add row</button>
-        <button onClick={this.showExtra}>{this.state.extra ? 'Hide' : 'Show'} extra</button>
+        <div style={{
+            display: 'flex',
+            alignItems: 'center'
+          }}>
+          {LANG['Language']}: <Dropdown options={LANGLIST} onChange={this._changeLang} value='english' />
+        </div>
+        <br/>
+        <button onClick={() => {localStorage.clear();window.location.reload(false);}}>{LANG['button CLEAR']}</button>
+        <button onClick={this.changeSize}>{LANG['button Remove row']}</button>
+        <button onClick={this.changeSize}>{LANG['button Add row']}</button>
+        <button onClick={this.showExtra}>{this.state.extra ? LANG['button Hide extra'] : LANG['button Show extra']}</button>
         <br/><br/>
         <div className="inventory">
           <div id="title">
@@ -416,7 +448,7 @@ export class Inventory extends Component {
               prefix='&'
               randomChars='ABCDEFGHJKLMNOPQRSTUVWXYZ'
             >
-              {this.state.menu_title || 'Menu'}
+              {this.state.menu_title || LANG['Menu empty title']}
             </McText>
 
           </div>
@@ -433,15 +465,15 @@ export class Inventory extends Component {
             ))}
           </div>
         </div>
-        <strong>Menu info</strong>:
+        <strong>{LANG['Menu info']}</strong>:
         <div className="value">
-          manu_title:<br/> <input type="text" name="manu_title" value={this.state.menu_title} onChange={this.handleName} />
+          {LANG['menu_title']}:<br/> <input type="text" name="menu_title" value={this.state.menu_title} onChange={this.handleName} />
         </div>
         <div className="value">
-          open_command:<br/> <input type="text" name="open_command" value={this.state.open_command} onChange={this.handleopen_command} />
+          {LANG['open_command']}:<br/> <input type="text" name="open_command" value={this.state.open_command} onChange={this.handleopen_command} />
         </div>
         <br />
-        <strong>Item info</strong>:
+        <strong>{LANG['Item info']}</strong>:
           {fields.map((el, i) => (
             <div
               key={i}
@@ -469,9 +501,10 @@ export class Inventory extends Component {
         >
            <Search
              selectedFromSearch={this.selectedFromSearch}
+             title={LANG['Search items']}
            />
          <br />
-         Your configured items
+         {LANG['Your configured items']}
          <br /><br />
          <div style={{
            display: 'flex',

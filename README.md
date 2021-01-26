@@ -37,4 +37,36 @@ npm start
 
 ---
 
+### Contributing
+
+##### Adding new language
+- Copy main lang file `english.json` in `/src/lang`.
+- Rename it to your language
+- Edit it
+- Add language to list in [/src/inventory.js on line 17](https://github.com/TABmk/dmeditor/blob/master/src/inventory.js#L17) (variable `LANGLIST`)
+⚠️ Name in list and file name must be the same ⚠️
+- Send pull request
+
+##### Adding new field
+- Open [/src/inventory.js on line 49](https://github.com/TABmk/dmeditor/blob/master/src/inventory.js#L49)
+- Add new object (info below)
+- Add name to main language file (en)
+- send pull request
+
+###### Fild object
+```
+{
+  name: LANG['your new field'],
+  extra: Boolean,
+  type: String,
+  tagName: String
+}
+```
+- name - String from lang file
+- extra - true = hide field by default
+- type - number | checkbox | text
+- tagName - input | textarea
+
+---
+
 ##### A lot of work to do. Just wanted to share it

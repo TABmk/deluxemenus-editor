@@ -151,3 +151,23 @@ a {
 .selectedSlot {
   background: #C5C5C5;
 }
+
+.Dropdown-control {
+  box-shadow: inset 1.5px 1.5px 0px rgba(55, 55, 55, 0.8),
+    inset -2px -2px 0px #ffffff;
+  border-radius: 3px;
+  background-color: unset !important;
+}
+
+.Dropdown-control:hover {
+  box-shadow: inset 1.5px 1.5px 0px rgba(55, 55, 55, 0.8),
+    inset -2px -2px 0px #ffffff !important;
+}
+
+.Dropdown-menu {
+  background-color: #ccc !important;
+}
+
+.Dropdown-option.is-selected {
+  background-color: #a5a5a5 !important;
+}

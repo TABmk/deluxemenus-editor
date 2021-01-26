@@ -32,7 +32,7 @@ export class Search extends Component {
             marginBottom: '2px'
           }}
         >
-          <span>Search items</span>
+          <span>{this.props.title}</span>
           <input
           type="text"
           name="search"
