@@ -22,13 +22,11 @@ let _lang = localStorage.getItem('lang');
 let selectLang = async (lang) => {
   if (lang && LANGLIST.includes(lang)) {
     await import(`./lang/${lang}`).then(res => {
-      LANG = res.default
-      console.log(res.default);
+      LANG = res.default;
     });
   }
+  localStorage.setItem('lang', lang);
 }
-
-selectLang(_lang);
 
 Modal.setAppElement('#root');
 
@@ -46,7 +44,7 @@ const customStyles = {
   }
 };
 
-const fields = [
+const fields = () => [
   {
     name: LANG['data'],
     extra: true,
@@ -239,7 +237,14 @@ export class Inventory extends Component {
     return 'none';
   }
 
+  _changeLang = async (e) => {
+    await selectLang(e.value);
+    this.forceUpdate();
+  }
+
   componentDidMount() {
+    this._changeLang({value: _lang});
+
     let saved = localStorage.getItem('state');
 
     if (saved) {
@@ -272,10 +277,7 @@ export class Inventory extends Component {
   componentDidUpdate(){
     localStorage.setItem('state', JSON.stringify(this.state))
   }
-  _changeLang = async (e) => {
-    await selectLang(e.value);
-    this.forceUpdate();
-  }
+
   selectedHead = (itm) => {
     let ar = this.state.items;
     ar[this.state.selected] = {
@@ -474,7 +476,7 @@ export class Inventory extends Component {
         </div>
         <br />
         <strong>{LANG['Item info']}</strong>:
-          {fields.map((el, i) => (
+          {fields().map((el, i) => (
             <div
               key={i}
               className="value"
