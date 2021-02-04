@@ -34,6 +34,7 @@ npm start
 - __YML__ export from right-side window (TODO add file export)
 - __Pre-configured__ items select. It will change "slot" field to "slots" for using same info for those items
 - __Preview__ even with minecraft color styled title
+- __Language selector__
 
 ---
 

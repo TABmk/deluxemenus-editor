@@ -48,10 +48,25 @@ body {
   flex-direction: column;
 }
 button:focus {outline:0}
+
 input, textarea, button {
   font-family: 'Minecraft';
   background-color: #ccc;
-  box-shadow: inset 1px 1px 0px #555555;
+  box-shadow: inset -1px -1px 0px #555555;
+}
+
+input, textarea {
+  padding: 5px;
+  margin-top: 3px;
+}
+
+button {
+  height: max-content;
+  box-sizing: border-box;
+  padding: 6px;
+  cursor: pointer;
+  margin: 2px;
+  flex-shrink: 2;
 }
 
 .inventory {

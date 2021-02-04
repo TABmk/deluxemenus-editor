@@ -17,7 +17,7 @@ import "ace-builds/src-noconflict/theme-github";
 const LANGLIST = ['russian', 'english'];
 
 let LANG = _LANG;
-let _lang = localStorage.getItem('lang');
+const _lang = localStorage.getItem('lang') || 'english';
 
 let selectLang = async (lang) => {
   if (lang && LANGLIST.includes(lang)) {
@@ -47,162 +47,189 @@ const customStyles = {
 const fields = () => [
   {
     name: LANG['data'],
+    value: 'data',
     extra: true,
     type: 'text',
     tagName: 'input'
   },
   {
     name: LANG['amount'],
+    value: 'amount',
     extra: false,
     type: 'number',
     tagName: 'input'
   },
   {
     name: LANG['dynamic_amount'],
+    value: 'dynamic_amount',
     extra: true,
     type: 'text',
     tagName: 'input'
   },
   {
     name: LANG['nbt_string'],
+    value: 'nbt_string',
     extra: true,
     type: 'text',
     tagName: 'input'
   },
   {
     name: LANG['nbt_int'],
+    value: 'nbt_int',
     extra: true,
     type: 'text',
     tagName: 'input'
   },
   {
     name: LANG['banner_meta'],
+    value: 'banner_meta',
     extra: true,
     type: 'text',
     tagName: 'textarea'
   },
   {
     name: LANG['rgb'],
+    value: 'rgb',
     extra: true,
     type: 'text',
     tagName: 'input'
   },
   {
     name: LANG['display_name'],
+    value: 'display_name',
     extra: false,
     type: 'text',
     tagName: 'input'
   },
   {
     name: LANG['lore'],
+    value: 'lore',
     extra: false,
     type: 'text',
     tagName: 'textarea'
   },
   {
     name: LANG['priority'],
+    value: 'priority',
     extra: true,
     type: 'number',
     tagName: 'input'
   },
   {
     name: LANG['view_requirement'],
+    value: 'view_requirement',
     extra: true,
     type: 'text',
     tagName: 'input'
   },
   {
     name: LANG['enchantments'],
+    value: 'enchantments',
     extra: true,
     type: '',
     tagName: 'textarea'
   },
   {
     name: LANG['update'],
+    value: 'update',
     extra: true,
     type: 'checkbox',
     tagName: 'input'
   },
   {
     name: LANG['hide_enchantments'],
+    value: 'hide_enchantments',
     extra: true,
     type: 'checkbox',
     tagName: 'input'
   },
   {
     name: LANG['hide_attributes'],
+    value: 'hide_attributes',
     extra: true,
     type: 'checkbox',
     tagName: 'input'
   },
   {
     name: LANG['hide_effects'],
+    value: 'hide_effects',
     extra: true,
     type: 'checkbox',
     tagName: 'input'
   },
   {
     name: LANG['unbreakable'],
+    value: 'unbreakable',
     extra: true,
     type: 'checkbox',
     tagName: 'input'
   },
   {
     name: LANG['left_click_commands'],
+    value: 'left_click_commands',
     extra: true,
     type: '',
     tagName: 'textarea'
   },
   {
     name: LANG['right_click_commands'],
+    value: 'right_click_commands',
     extra: true,
     type: '',
     tagName: 'textarea'
   },
   {
     name: LANG['middle_click_commands'],
+    value: 'middle_click_commands',
     extra: true,
     type: '',
     tagName: 'textarea'
   },
   {
     name: LANG['shift_left_click_commands'],
+    value: 'shift_left_click_commands',
     extra: true,
     type: '',
     tagName: 'textarea'
   },
   {
     name: LANG['shift_right_click_commands'],
+    value: 'shift_right_click_commands',
     extra: true,
     type: '',
     tagName: 'textarea'
   },
   {
     name: LANG['left_click_requirement'],
+    value: 'left_click_requirement',
     extra: true,
     type: '',
     tagName: 'textarea'
   },
   {
     name: LANG['right_click_requirement'],
+    value: 'right_click_requirement',
     extra: true,
     type: '',
     tagName: 'textarea'
   },
   {
     name: LANG['middle_click_requirement'],
+    value: 'middle_click_requirement',
     extra: true,
     type: '',
     tagName: 'textarea'
   },
   {
     name: LANG['shift_left_click_requirement'],
+    value: 'shift_left_click_requirement',
     extra: true,
     type: '',
     tagName: 'textarea'
   },
   {
     name: LANG['shift_right_click_requirement'],
+    value: 'shift_right_click_requirement',
     extra: true,
     type: '',
     tagName: 'textarea'
@@ -349,6 +376,28 @@ export class Inventory extends Component {
       open_command: e.target.value
     })
   }
+  clearSlot = () => {
+    let ar = this.state.items;
+
+    ar[this.state.selected] = {id: this.state.selected};
+
+    for (let i = 0; i < ar.length; i += 1) {
+      if (typeof ar[i].slots !== 'undefined' && ar[i].slots.includes(this.state.selected)) {
+        let index = ar[i].slots.indexOf(this.state.selected);
+
+        ar[i].slots.splice(index, 1);
+
+        if (ar[i].slots.length === 1) {
+          ar[i].slot = ar[i].slots[0];
+          delete ar[i].slots;
+        }
+      }
+    }
+
+    this.setState({
+      items: ar,
+    });
+  }
   changeSize = (e) => {
     if (e.currentTarget.textContent === LANG['button Remove row']) {
       if (this.state.items.length === 9) {
@@ -393,6 +442,10 @@ export class Inventory extends Component {
   updateItem = (e) => {
     let ar = this.state.items;
 
+    if (typeof ar[this.state.selected].material === 'undefined') {
+      return;
+    }
+
     let val;
 
     switch (e.target.type) {
@@ -435,10 +488,11 @@ export class Inventory extends Component {
             display: 'flex',
             alignItems: 'center'
           }}>
-          {LANG['Language']}: <Dropdown options={LANGLIST} onChange={this._changeLang} value='english' />
+          {LANG['Language']}: <Dropdown options={LANGLIST} onChange={this._changeLang} value={_lang} />
         </div>
         <br/>
         <button onClick={() => {localStorage.clear();window.location.reload(false);}}>{LANG['button CLEAR']}</button>
+        <button onClick={this.clearSlot}>{LANG['button Clear slot']}</button>
         <button onClick={this.changeSize}>{LANG['button Remove row']}</button>
         <button onClick={this.changeSize}>{LANG['button Add row']}</button>
         <button onClick={this.showExtra}>{this.state.extra ? LANG['button Hide extra'] : LANG['button Show extra']}</button>
@@ -485,10 +539,10 @@ export class Inventory extends Component {
               <span>{el.name}:</span>
               <br />
               <el.tagName
-                value={this.state.items[this.state.selected] ? this.state.items[this.state.selected][el.name] || '' : ''}
+                value={this.state.items[this.state.selected] ? this.state.items[this.state.selected][el.value] || '' : ''}
                 onChange={this.updateItem}
                 type={el.type}
-                name={el.name}
+                name={el.value}
               />
             </div>
           ))}
