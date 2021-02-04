@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: "Minecraft";
-    src: url('/minecraft-font.ttf');
+    src: url('/dmeditor/minecraft-font.ttf');
   }
 
 html {
@@ -27,7 +27,7 @@ body {
 #output {
   float: right;
   width: 50vw;
-  height: 100vh;
+  height: 95vh;
 }
 
 #itemsSearch {
@@ -53,6 +53,8 @@ input, textarea, button {
   font-family: 'Minecraft';
   background-color: #ccc;
   box-shadow: inset -1px -1px 0px #555555;
+  -webkit-box-shadow: inset -1px -1px 0px #555555;
+  -webkit-appearance: none;
 }
 
 input, textarea {
@@ -69,12 +71,18 @@ button {
   flex-shrink: 2;
 }
 
+.download {
+  width: -webkit-fill-available;
+}
+
 .inventory {
   width: 335px;
   height: fit-content;
   background: #c6c6c6;
   border-radius: 3px;
   box-shadow: 5px 5px 0px #555555, inset 4px 4px 0px #fefefe;
+  -webkit-box-shadow: 5px 5px 0px #555555, inset 4px 4px 0px #fefefe;
+  -webkit-appearance: none;
   padding-top: 5px;
   padding-left: 5px;
   padding-bottom: 5px;
@@ -107,7 +115,10 @@ button {
   justify-content: center;
   background: #8b8b8b;
   box-shadow: inset 1.5px 1.5px 0px rgba(55, 55, 55, 0.8),
+  inset -2px -2px 0px #ffffff;
+  -webkit-box-shadow: inset 1.5px 1.5px 0px rgba(55, 55, 55, 0.8),
     inset -2px -2px 0px #ffffff;
+  -webkit-appearance: none;
 }
 
 .slotSpace {
@@ -170,6 +181,9 @@ a {
 .Dropdown-control {
   box-shadow: inset 1.5px 1.5px 0px rgba(55, 55, 55, 0.8),
     inset -2px -2px 0px #ffffff;
+  -webkit-box-shadow: inset 1.5px 1.5px 0px rgba(55, 55, 55, 0.8),
+    inset -2px -2px 0px #ffffff;
+  -webkit-appearance: none;
   border-radius: 3px;
   background-color: unset !important;
 }

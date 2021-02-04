@@ -7,6 +7,7 @@ import AceEditor from 'react-ace';
 import YAML from 'json-to-pretty-yaml';
 import Modal from 'react-modal';
 import _LANG from './lang/english';
+import fileDownload from 'js-file-download';
 
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
@@ -376,6 +377,9 @@ export class Inventory extends Component {
       open_command: e.target.value
     })
   }
+  downloadYaml = () => {
+    fileDownload(YAML.stringify(this.computedItems()), 'menu.yml');
+  }
   clearSlot = () => {
     let ar = this.state.items;
 
@@ -477,6 +481,7 @@ export class Inventory extends Component {
     return(
       <div>
         <div id="output">
+          <button className="download" onClick={this.downloadYaml}>{LANG['button Download']}</button>
           <AceEditor
             mode="yaml"
             theme="github"
