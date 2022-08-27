@@ -68,6 +68,13 @@ const fields = () => [
     tagName: 'input'
   },
   {
+    name: LANG['model_data'],
+    value: 'model_data',
+    extra: true,
+    type: 'text',
+    tagName: 'input'
+  },
+  {
     name: LANG['nbt_string'],
     value: 'nbt_string',
     extra: true,
@@ -91,6 +98,34 @@ const fields = () => [
   {
     name: LANG['rgb'],
     value: 'rgb',
+    extra: true,
+    type: 'text',
+    tagName: 'input'
+  },
+  {
+    name: LANG['base_color'],
+    value: 'base_color',
+    extra: true,
+    type: 'text',
+    tagName: 'input'
+  },
+  {
+    name: LANG['item_flags'],
+    value: 'item_flags',
+    extra: true,
+    type: 'text',
+    tagName: 'textarea'
+  },
+  {
+    name: LANG['potion_effects'],
+    value: 'potion_effects',
+    extra: true,
+    type: 'text',
+    tagName: 'textarea'
+  },
+  {
+    name: LANG['entity_type'],
+    value: 'entity_type',
     extra: true,
     type: 'text',
     tagName: 'input'
@@ -161,6 +196,13 @@ const fields = () => [
   {
     name: LANG['unbreakable'],
     value: 'unbreakable',
+    extra: true,
+    type: 'checkbox',
+    tagName: 'input'
+  },
+  {
+    name: LANG['hide_unbreakable'],
+    value: 'hide_unbreakable',
     extra: true,
     type: 'checkbox',
     tagName: 'input'
@@ -351,6 +393,16 @@ export class Inventory extends Component {
     // eslint-disable-next-line
     let items = this.state.items.map($ => {
       let _ = Object.assign({}, $);
+      const _fields = fields();
+
+      Object.entries(_).forEach((e) => {
+        if (/\n/.test(e[1])) {
+          let index = _fields.findIndex(el => el.name === e[0]);
+          if (index > -1 && _fields[index].tagName === 'textarea') {
+            _[e[0]] = e[1].split('\n');
+          }
+        }
+      });
 
       if (Object.keys($).length > 2) {
         delete _.icon;
@@ -518,6 +570,7 @@ export class Inventory extends Component {
               <Slot
                 key={Math.random() + '_inv'}
                 id={el.id}
+                lore={Number.isInteger(el.parent) ? this.state.items[el.parent].lore : el.lore}
                 selectedSlot={this.selectedSlot}
                 amount={Number.isInteger(el.parent) ? this.state.items[el.parent].amount : el.amount}
                 isSelected={this.state.selected === el.id}

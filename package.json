@@ -1,6 +1,6 @@
 {
-  "name": "dmeditor",
-  "version": "0.1.0",
+  "name": "eluxemenus-editor",
+  "version": "0.1.1",
   "homepage": "http://tabmk.github.io/dmeditor",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -11,6 +11,7 @@
     "json-to-pretty-yaml": "^1.2.2",
     "mctext-react": "^1.1.0",
     "minecraft-items": "^0.4.3",
+    "rc-tooltip": "^5.2.2",
     "react": "^16.13.1",
     "react-ace": "^9.1.3",
     "react-dom": "^16.13.1",

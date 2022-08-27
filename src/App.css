@@ -200,3 +200,11 @@ a {
 .Dropdown-option.is-selected {
   background-color: #a5a5a5 !important;
 }
+
+.rc-tooltip-inner {
+  border: 1px solid #18003D !important;
+  text-shadow: 0.125em 0.125em 0 #3F3F3F;
+  color: #fff !important;
+  background-color: rgba(16,0,16,0.94) !important;
+  min-height: unset !important;
+}
