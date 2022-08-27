@@ -1,27 +1,27 @@
 {
   "files": {
-    "static/js/0.88ae53c9.chunk.js": "/dmeditor/static/js/0.88ae53c9.chunk.js",
-    "static/js/0.88ae53c9.chunk.js.map": "/dmeditor/static/js/0.88ae53c9.chunk.js.map",
-    "main.css": "/dmeditor/static/css/main.0590fc21.chunk.css",
-    "main.js": "/dmeditor/static/js/main.d2851759.chunk.js",
-    "main.js.map": "/dmeditor/static/js/main.d2851759.chunk.js.map",
-    "runtime-main.js": "/dmeditor/static/js/runtime-main.c451f8e5.js",
-    "runtime-main.js.map": "/dmeditor/static/js/runtime-main.c451f8e5.js.map",
-    "static/css/3.f55c1f17.chunk.css": "/dmeditor/static/css/3.f55c1f17.chunk.css",
-    "static/js/3.c1ec347e.chunk.js": "/dmeditor/static/js/3.c1ec347e.chunk.js",
-    "static/js/3.c1ec347e.chunk.js.map": "/dmeditor/static/js/3.c1ec347e.chunk.js.map",
-    "index.html": "/dmeditor/index.html",
-    "precache-manifest.a21a8ff801c711651c4935b5f33a2c22.js": "/dmeditor/precache-manifest.a21a8ff801c711651c4935b5f33a2c22.js",
-    "service-worker.js": "/dmeditor/service-worker.js",
-    "static/css/3.f55c1f17.chunk.css.map": "/dmeditor/static/css/3.f55c1f17.chunk.css.map",
-    "static/css/main.0590fc21.chunk.css.map": "/dmeditor/static/css/main.0590fc21.chunk.css.map",
-    "static/js/3.c1ec347e.chunk.js.LICENSE.txt": "/dmeditor/static/js/3.c1ec347e.chunk.js.LICENSE.txt"
+    "static/js/0.88ae53c9.chunk.js": "/deluxemenus-editor/static/js/0.88ae53c9.chunk.js",
+    "static/js/0.88ae53c9.chunk.js.map": "/deluxemenus-editor/static/js/0.88ae53c9.chunk.js.map",
+    "main.css": "/deluxemenus-editor/static/css/main.0414b16e.chunk.css",
+    "main.js": "/deluxemenus-editor/static/js/main.c377a7b2.chunk.js",
+    "main.js.map": "/deluxemenus-editor/static/js/main.c377a7b2.chunk.js.map",
+    "runtime-main.js": "/deluxemenus-editor/static/js/runtime-main.043ae5d3.js",
+    "runtime-main.js.map": "/deluxemenus-editor/static/js/runtime-main.043ae5d3.js.map",
+    "static/css/3.f55c1f17.chunk.css": "/deluxemenus-editor/static/css/3.f55c1f17.chunk.css",
+    "static/js/3.c1ec347e.chunk.js": "/deluxemenus-editor/static/js/3.c1ec347e.chunk.js",
+    "static/js/3.c1ec347e.chunk.js.map": "/deluxemenus-editor/static/js/3.c1ec347e.chunk.js.map",
+    "index.html": "/deluxemenus-editor/index.html",
+    "precache-manifest.d02b525bdd179de1ac9409fd4443a7ce.js": "/deluxemenus-editor/precache-manifest.d02b525bdd179de1ac9409fd4443a7ce.js",
+    "service-worker.js": "/deluxemenus-editor/service-worker.js",
+    "static/css/3.f55c1f17.chunk.css.map": "/deluxemenus-editor/static/css/3.f55c1f17.chunk.css.map",
+    "static/css/main.0414b16e.chunk.css.map": "/deluxemenus-editor/static/css/main.0414b16e.chunk.css.map",
+    "static/js/3.c1ec347e.chunk.js.LICENSE.txt": "/deluxemenus-editor/static/js/3.c1ec347e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.c451f8e5.js",
+    "static/js/runtime-main.043ae5d3.js",
     "static/css/3.f55c1f17.chunk.css",
     "static/js/3.c1ec347e.chunk.js",
-    "static/css/main.0590fc21.chunk.css",
-    "static/js/main.d2851759.chunk.js"
+    "static/css/main.0414b16e.chunk.css",
+    "static/js/main.c377a7b2.chunk.js"
   ]
 }
