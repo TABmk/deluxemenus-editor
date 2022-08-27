@@ -3,15 +3,15 @@
     "static/js/0.88ae53c9.chunk.js": "/deluxemenus-editor/static/js/0.88ae53c9.chunk.js",
     "static/js/0.88ae53c9.chunk.js.map": "/deluxemenus-editor/static/js/0.88ae53c9.chunk.js.map",
     "main.css": "/deluxemenus-editor/static/css/main.0414b16e.chunk.css",
-    "main.js": "/deluxemenus-editor/static/js/main.c377a7b2.chunk.js",
-    "main.js.map": "/deluxemenus-editor/static/js/main.c377a7b2.chunk.js.map",
+    "main.js": "/deluxemenus-editor/static/js/main.5a0c6238.chunk.js",
+    "main.js.map": "/deluxemenus-editor/static/js/main.5a0c6238.chunk.js.map",
     "runtime-main.js": "/deluxemenus-editor/static/js/runtime-main.043ae5d3.js",
     "runtime-main.js.map": "/deluxemenus-editor/static/js/runtime-main.043ae5d3.js.map",
     "static/css/3.f55c1f17.chunk.css": "/deluxemenus-editor/static/css/3.f55c1f17.chunk.css",
     "static/js/3.c1ec347e.chunk.js": "/deluxemenus-editor/static/js/3.c1ec347e.chunk.js",
     "static/js/3.c1ec347e.chunk.js.map": "/deluxemenus-editor/static/js/3.c1ec347e.chunk.js.map",
     "index.html": "/deluxemenus-editor/index.html",
-    "precache-manifest.d02b525bdd179de1ac9409fd4443a7ce.js": "/deluxemenus-editor/precache-manifest.d02b525bdd179de1ac9409fd4443a7ce.js",
+    "precache-manifest.d18d784248ce5db94b4e79cea6f760c9.js": "/deluxemenus-editor/precache-manifest.d18d784248ce5db94b4e79cea6f760c9.js",
     "service-worker.js": "/deluxemenus-editor/service-worker.js",
     "static/css/3.f55c1f17.chunk.css.map": "/deluxemenus-editor/static/css/3.f55c1f17.chunk.css.map",
     "static/css/main.0414b16e.chunk.css.map": "/deluxemenus-editor/static/css/main.0414b16e.chunk.css.map",
@@ -22,6 +22,6 @@
     "static/css/3.f55c1f17.chunk.css",
     "static/js/3.c1ec347e.chunk.js",
     "static/css/main.0414b16e.chunk.css",
-    "static/js/main.c377a7b2.chunk.js"
+    "static/js/main.5a0c6238.chunk.js"
   ]
 }

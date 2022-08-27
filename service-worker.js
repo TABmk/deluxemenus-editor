@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/deluxemenus-editor/precache-manifest.d02b525bdd179de1ac9409fd4443a7ce.js"
+  "/deluxemenus-editor/precache-manifest.d18d784248ce5db94b4e79cea6f760c9.js"
 );
 
 self.addEventListener('message', (event) => {
