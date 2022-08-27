@@ -1,7 +1,7 @@
 {
   "name": "deluxemenus-editor",
   "version": "0.1.1",
-  "homepage": "http://tabmk.github.io/dmeditor",
+  "homepage": "http://tabmk.github.io/deluxemenus-editor",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",

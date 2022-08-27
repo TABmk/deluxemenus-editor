@@ -2,13 +2,13 @@
 
 Visual editor for [DeluxeMenus](https://wiki.helpch.at/clips-plugins/deluxemenus)
 
-#### Demo: https://tabmk.github.io/dmeditor/
+#### Demo: https://tabmk.github.io/deluxemenus-editor/
 
 ---
 <p align="center">
   <b>Rate</b>
   <br>
-  <img src="https://img.shields.io/github/stars/tabmk/dmeditor?style=social">
+  <img src="https://img.shields.io/github/stars/tabmk/deluxemenus-editor?style=social">
   <img src="img/1.png" />
   <img src="img/2.png" />
 </p>
@@ -44,7 +44,7 @@ npm start
 
 ### New features
 
-You can request new features by [open issue](https://github.com/TABmk/dmeditor/issues/new) (Added label "feature wanted" for this)
+You can request new features by [open issue](https://github.com/TABmk/deluxemenus-editor/issues/new) (Added label "feature wanted" for this)
 
 ---
 ### Contributing
@@ -53,12 +53,12 @@ You can request new features by [open issue](https://github.com/TABmk/dmeditor/i
 - Copy main lang file `english.json` in `/src/lang`.
 - Rename it to your language
 - Edit it
-- Add language to list in [/src/inventory.js on line 17](https://github.com/TABmk/dmeditor/blob/master/src/inventory.js#L17) (variable `LANGLIST`)
+- Add language to list in [/src/inventory.js on line 17](https://github.com/TABmk/deluxemenus-editor/blob/master/src/inventory.js#L17) (variable `LANGLIST`)
 ⚠️ Name in list and file name must be the same ⚠️
 - Send pull request
 
 ##### Adding new field
-- Open [/src/inventory.js on line 49](https://github.com/TABmk/dmeditor/blob/master/src/inventory.js#L49)
+- Open [/src/inventory.js on line 49](https://github.com/TABmk/deluxemenus-editor/blob/master/src/inventory.js#L49)
 - Add new object (info below)
 - Add name to main language file (en)
 - send pull request
