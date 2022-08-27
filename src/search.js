@@ -15,9 +15,10 @@ export class Search extends Component {
   }
   handleChange = (e) => {
     let search = minecraftItems.find(e.target.value).slice(0,53);
-
+    
     let empty = new Array(54-search.length).fill({empty: true})
     let items = [...search, ...empty];
+    console.log(items);
     this.setState({
       items,
     });

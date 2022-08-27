@@ -7,7 +7,7 @@ import Tooltip from 'rc-tooltip';
 import 'rc-tooltip/assets/bootstrap_white.css';
 
 export class Slot extends Component {
-  slotData = <div
+  slotData = () => <div
     onClick={() => { if (!this.props.isSearch) this.props.selectedSlot(this.props.id) }}
     id={this.props.id}
     className={`slot${this.props.isSelected ? ' selectedSlot' : ''}`}
@@ -34,8 +34,8 @@ export class Slot extends Component {
           </McText>
         }
       >
-        {this.slotData}
-      </Tooltip> : this.slotData
+        {this.slotData()}
+      </Tooltip> : this.slotData()
     )
   }
 }
