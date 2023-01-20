@@ -4,7 +4,7 @@ import { Slot } from './slot';
 import { Search } from './search';
 import React, { Component } from 'react';
 import AceEditor from 'react-ace';
-import YAML from 'json-to-pretty-yaml';
+import YAML from 'js-yaml';
 import Modal from 'react-modal';
 import _LANG from './lang/english';
 import fileDownload from 'js-file-download';
@@ -279,19 +279,38 @@ const fields = () => [
   },
 ];
 
+const YAML_DEFAULTS = {
+  indent: 2,
+  noArrayIndent: false,
+  skipInvalid: false,
+  flowLevel: -1,
+  sortKeys: false,
+  lineWidth: 80,
+  noRefs: false,
+  noCompatMode: false,
+  condenseFlow: false,
+  quotingType: '\'',
+  forceQuotes: false,
+};
+
 export class Inventory extends Component {
   state = {
     menu_title: LANG['Menu default title'],
     open_command: 'menu',
     size: 0,
     showModal: true,
+    showYAMLOpts: false,
+    yamlError: false,
     selected: 0,
     selectedSearch: {},
     items: [],
     currentItem: {
       material: 'none'
-    }
+    },
+    yaml: YAML_DEFAULTS,
   }
+
+  inputRef = React.createRef(null)
 
   computedMaterial = (id) => {
     if (this.state.items[id]) {
@@ -318,9 +337,12 @@ export class Inventory extends Component {
     let saved = localStorage.getItem('state');
 
     if (saved) {
-      this.setState(JSON.parse(saved));
+      const old = JSON.parse(saved);
+      this.setState(old);
+      this.inputRef.current.value = JSON.stringify(old.yaml, null, 4);
       return;
     }
+
     let elems = [];
     for (let i = this.state.size; i < this.state.size+9; i += 1) {
       elems.push({
@@ -396,12 +418,13 @@ export class Inventory extends Component {
       const _fields = fields();
 
       Object.entries(_).forEach((e) => {
-        if (/\n/.test(e[1])) {
+        // Old version for supporting string and arrays in textarea
+        // if (/\n/.test(e[1])) {
           let index = _fields.findIndex(el => el.name === e[0]);
           if (index > -1 && _fields[index].tagName === 'textarea') {
             _[e[0]] = e[1].split('\n');
           }
-        }
+        // }
       });
 
       if (Object.keys($).length > 2) {
@@ -430,7 +453,7 @@ export class Inventory extends Component {
     })
   }
   downloadYaml = () => {
-    fileDownload(YAML.stringify(this.computedItems()), 'menu.yml');
+    fileDownload(YAML.dump(this.computedItems(), this.state.yaml), 'menu.yml');
   }
   clearSlot = () => {
     let ar = this.state.items;
@@ -495,6 +518,38 @@ export class Inventory extends Component {
       extra: !this.state.extra,
     });
   }
+  resetYaml = (e) => {
+    this.setState({
+      yaml: YAML_DEFAULTS,
+    });
+    this.inputRef.current.value = JSON.stringify(YAML_DEFAULTS, null, 4);
+    this.setState({
+      yamlError: false,
+    });
+  }
+  updateYAMLOpts = (e) => {
+
+    try {
+      JSON.parse(e.target.value)
+
+      this.setState({
+        yaml: JSON.parse(e.target.value),
+      });
+
+      this.setState({
+        yamlError: false,
+      });
+    } catch (error) {
+      this.setState({
+        yamlError: true,
+      });
+    }
+  }
+  toggleYAMLOpts = (e) => {
+    this.setState({
+      showYAMLOpts: !this.state.showYAMLOpts,
+    });
+  }
   updateItem = (e) => {
     let ar = this.state.items;
 
@@ -533,12 +588,49 @@ export class Inventory extends Component {
     return(
       <div>
         <div id="output">
+          <button onClick={this.toggleYAMLOpts} className="download">{LANG['button YAML config']}</button>
+          <div style={{
+            display: this.state.showYAMLOpts ? 'block' : 'none'
+          }}>
+            <div
+              style={{
+                color: 'red',
+                display: this.state.yamlError ? 'block' : 'none'
+              }}
+            >JSON error, fix config</div>
+            <div
+              style={{
+                color: 'blue',
+                fontSize: '14px',
+              }}
+            ><a target='_blank' rel='noopener noreferrer' href="https://github.com/nodeca/js-yaml#dump-object---options-">Options description</a></div>
+            <textarea
+              className='yamlOpts'
+              onChange={this.updateYAMLOpts}
+              ref={this.inputRef}
+              defaultValue={JSON.stringify(this.state.yaml, null, 4)}
+            ></textarea>
+            <button className="download" onClick={this.resetYaml}>{LANG['button Reset YAML']}</button>
+          </div>
           <button className="download" onClick={this.downloadYaml}>{LANG['button Download']}</button>
           <AceEditor
             mode="yaml"
             theme="github"
             readOnly={true}
-            value={YAML.stringify(this.computedItems())}
+            value={YAML.dump(this.computedItems(), this.state.yaml)}
+            // value={YAML.dump(this.computedItems(), {
+            //   indent: 2,
+            //   noArrayIndent: false,
+            //   skipInvalid: false,
+            //   flowLevel: -1,
+            //   sortKeys: false,
+            //   lineWidth: 80,
+            //   noRefs: false,
+            //   noCompatMode: false,
+            //   condenseFlow: false,
+            //   quotingType: '\'',
+            //   forceQuotes: false,
+            // })}
             />
         </div>
         <div style={{

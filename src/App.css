@@ -152,13 +152,13 @@ button {
   right: -13px;
 }
 
-::selection {
+/* ::selection {
   background: transparent;
 }
 
 ::-moz-selection {
   background: transparent;
-}
+} */
 
 .copy {
   font-family: 'Minecraft', monospace;
@@ -207,4 +207,9 @@ a {
   color: #fff !important;
   background-color: rgba(16,0,16,0.94) !important;
   min-height: unset !important;
+}
+
+.yamlOpts {
+  width: 96%;
+  height: 180px;
 }

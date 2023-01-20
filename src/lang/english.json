@@ -1,6 +1,8 @@
 {
   "Language": "Language",
   "button Download": "Download",
+  "button YAML config": "YAML config ▼",
+  "button Reset YAML": "Reset YAML config",
   "button CLEAR": "CLEAR",
   "button Clear slot": "Clear slot",
   "button Remove row": "Remove row",

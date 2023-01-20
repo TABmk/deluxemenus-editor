@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^7.1.2",
     "ace-builds": "^1.4.12",
     "js-file-download": "^0.4.12",
-    "json-to-pretty-yaml": "^1.2.2",
+    "js-yaml": "^4.1.0",
     "mctext-react": "^1.1.0",
     "minecraft-items": "^0.4.3",
     "rc-tooltip": "^5.2.2",
