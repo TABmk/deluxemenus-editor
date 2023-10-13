@@ -420,7 +420,7 @@ export class Inventory extends Component {
       Object.entries(_).forEach((e) => {
         // Old version for supporting string and arrays in textarea
         // if (/\n/.test(e[1])) {
-          let index = _fields.findIndex(el => el.name === e[0]);
+          let index = _fields.findIndex(el => el.value === e[0]);
           if (index > -1 && _fields[index].tagName === 'textarea') {
             _[e[0]] = e[1].split('\n');
           }
